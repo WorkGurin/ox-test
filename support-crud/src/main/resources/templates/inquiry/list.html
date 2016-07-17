@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<layout:html lang="en" xmlns:th="http://www.thymeleaf.org"
+             layout:decorator="menu" xmlns:layout="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>List Inquiries</title>
+    </head>
+    <body>
+
+    <div layout:fragment="content">
+
+        <a th:href="@{/customers/inquiries/create}">Add New Inquiry</a>
+        <br/><br/>
+
+        <div th:if="${message}" class="alert alert-success" role="alert">
+            <p th:text="${message}">success message</p>
+        </div>
+
+        <article th:each="inquiry : ${inquiries}">
+            <header>
+                <h2 th:text="${inquiry.topic.name}">topic</h2>
+                <p><span th:text="'Customer Name: '"></span>
+                    <a th:href="@{/customers/} + ${inquiry.customerName} + '/inquiries/'"
+                       th:text="${inquiry.customerName}">customerName</a></p>
+                <p th:text="'Create Date: ' + ${#calendars.format(inquiry.createDate,'yyyy-MM-dd HH:mm:ss')}">
+                    createDate</p>
+                <p th:text="'Attributes: ' + ${inquiry.attributes}">attributes</p>
+            </header>
+            <section th:utext="'Description: ' + ${inquiry.description}">description</section>
+            <footer>
+                <a th:href="@{/customers/} + ${inquiry.customerName} + '/inquiries/' + ${inquiry.id}">View</a>
+                <a th:href="@{/customers/} + ${inquiry.customerName} + '/inquiries/' + ${inquiry.id} + '/edit'">Edit</a>
+                <a th:href="@{/customers/} + ${inquiry.customerName} + '/inquiries/' + ${inquiry.id} + '/delete'">Delete</a>
+            </footer>
+            <hr/>
+        </article>
+
+        <p th:if="${inquiries.size() == 0}">
+        <div class="alert alert-warning" role="alert">No Inquiries Found.</div>
+        </p>
+
+    </div>
+
+    </body>
+</layout:html>
