@@ -1,0 +1,13 @@
+com\ox\repository\InquiryRepository.class
+com\ox\service\InquiryService.class
+com\ox\repository\TopicRepository.class
+com\ox\exception\InquiryNotFoundException.class
+com\ox\controller\InquiryController.class
+com\ox\json\JsonDateDeserializer.class
+com\ox\RunSupport.class
+com\ox\domain\Inquiry.class
+com\ox\domain\Topic.class
+com\ox\controller\TopicController.class
+com\ox\json\JsonObjectSerializer.class
+com\ox\service\InquiryServiceImpl.class
+com\ox\json\JsonDateSerializer.class

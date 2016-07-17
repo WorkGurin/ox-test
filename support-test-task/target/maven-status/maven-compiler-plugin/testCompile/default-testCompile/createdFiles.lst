@@ -1,0 +1,5 @@
+com\ox\controller\InquiryControllerTest.class
+com\ox\controller\TopicControllerTest.class
+com\ox\repository\InquiryServiceTest.class
+com\ox\repository\TopicRepositoryTest.class
+com\ox\RunSupportTests.class
